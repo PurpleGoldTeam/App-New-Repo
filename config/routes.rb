@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   get  '/contact', to: 'static_pages#contact'
   get  '/signup',  to: 'users#new'
   post '/users',   to: 'users#create'
+  #SSO routes
+  get 'auth/:provider/callback' => 'sessions#create'
+  post 'logout' => 'sessions#destroy'
+  get 'auth/failure' => 'sessions#failure'
+  get 'auth/twitter', :as => 'login'
 
   
   
