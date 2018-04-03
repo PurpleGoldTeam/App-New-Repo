@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   #before_filter :set_current_user
-  #before_action :set_current_user #above has been deprecated
+  before_action :set_current_user #above has been deprecated
   
   #book uses just 'protected', hopefully line below is fine
   protect_from_forgery with: :exception
