@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users
-  get 'static_pages/home'
+  get '/static_pages/home'
 
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/users',   to: 'users#create'
   #SSO routes
   get 'auth/:provider/callback' => 'sessions#create'
-  post 'logout' => 'sessions#destroy'
+  post '/logout' => 'sessions#destroy'
   get 'auth/failure' => 'sessions#failure'
   get 'auth/twitter', :as => 'login'
 
