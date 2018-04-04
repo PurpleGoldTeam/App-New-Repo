@@ -6,6 +6,11 @@
     This is the home page for the
   <a href="#">BLND8</a>App.
   </h2>
-
+  <% if @current_user %>
+  Welcome
+  <%= @current_user.name %>
+  <% else %>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Log in with Twitter!", '/auth/twitter', class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
