@@ -3,7 +3,8 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@user, url: signup_path) do |f| %>
+
       <%= f.label :name %>
       <%= f.text_field :name %>
 
@@ -16,18 +17,10 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
       
-      <%= f.radio_button :sex, "Male", :id=>"Male", :style=>"display:none;" %>
-      <label for="first" class="btn btn-primary">Male</label>
       
-      <%= f.radio_button :sex, "Female", :id=>"Female", :style=>"display:none;" %>
-      <label for="Female" class="btn btn-primary">Female</label>
-    
-      <%= f.radio_button :sex, "Other", :id=>"Other", :style=>"display:none;" %>
-      <label for="Other" class="btn btn-primary">Other</label>
         
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
-
 
