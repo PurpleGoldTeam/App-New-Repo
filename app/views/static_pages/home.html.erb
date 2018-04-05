@@ -1,4 +1,8 @@
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.w3-btn {width:150px;}
+</style>
 <div class="center jumbotron">
   <h1>Welcome to the BLND8 App</h1>
 
@@ -9,9 +13,9 @@
   <% if @current_user %>
   Welcome
   <%= @current_user.name %>
-  <%= link_to "Log Out", '/logout', :method => :post, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Log Out", '/logout', :method => :post, class: "btn btn-lg btn-primary w3-button w3-grey w3-round-xxlarge btnPadding" %>
   <% else %>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Log in with Twitter!", '/auth/twitter', class: "btn btn-lg btn-primary" %>
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary w3-button w3-grey w3-round-xxlarge btnPadding" %>
+  <%= link_to "Log in with Twitter!", '/auth/twitter', class: "btn btn-lg btn-primary w3-button w3-grey w3-round-xxlarge btnPadding" %>
   <% end %>
 </div>
