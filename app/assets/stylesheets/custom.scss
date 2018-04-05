@@ -11,7 +11,16 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  color: black;
+  background: url("guillermo-nolasco-134842-unsplash.jpg"); 
+  height: 100%; 
+
+    /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 section {
   overflow: auto;
@@ -40,6 +49,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: black;
 }
 
 h2 {
@@ -48,7 +58,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: white;
 }
 
 p {
@@ -76,14 +86,14 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
+  margin-top: 200px;
+  padding-top: 10px;
   border-top: 1px solid #eaeaea;
-  color: #777;
+  color: white;
   a {
-    color: #555;
+    color: white;
     &:hover {
-      color: #222;
+    background-color: transparent;
     }
   }
   small {

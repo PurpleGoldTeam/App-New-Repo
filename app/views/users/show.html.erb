@@ -6,15 +6,17 @@
 </h1>
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="text-white"> 
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
 
-<p>
+<p class="text-white"> 
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
