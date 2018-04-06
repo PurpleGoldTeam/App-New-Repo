@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
-    #user shouldn't have to be logged in before logging in
+  def new
+  end
+
+      #user shouldn't have to be logged in before logging in
     skip_before_action :set_current_user
     def sso_create
         auth=request.env["omniauth.auth"]
@@ -8,10 +11,23 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to root_path
     end
-    def destroy
-        session.delete(:user_id)
-        flash[:notice] = 'Logged out successfully'
-        redirect_to '/static_pages/home'
+  
+  def create
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+    # Log the user in and redirect to the user's show page.
+      log_in user
+      redirect_to user
+    else
+      flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
+      render 'new'
     end
-    
+  end
+
+
+  def destroy
+    log_out
+    redirect_to root_url
+  end
 end
+#end #?
