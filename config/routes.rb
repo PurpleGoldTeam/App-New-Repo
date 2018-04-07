@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback' => 'sessions#sso_create'
   #post '/logout' => 'sessions#destroy' #already above
   get 'auth/failure' => 'sessions#failure'
-  get 'auth/twitter', :as => 'login'
+  get 'auth/twitter', :as => 'login2'
 
 
   
