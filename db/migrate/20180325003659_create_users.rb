@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :ocupation
       t.string :income
       t.string :smoker
+      t.string :drinker
       t.string :height
       t.string :weight
       t.string :age
@@ -18,8 +19,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :city
       t.string :state
       t.string :zip
-      
-
       t.timestamps
     end
     

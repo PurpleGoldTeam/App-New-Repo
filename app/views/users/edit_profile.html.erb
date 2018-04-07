@@ -1,0 +1,47 @@
+<h1>Edit Profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+        
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+        
+        <%= f.label :age %>
+        <%= f.password_field :age, class: 'form-control' %>
+        
+        <%= f.label :race %>
+        <%= f.password_field :race, class: 'form-control' %>
+        
+        <%= f.label :sex %>
+        <%= f.password_field :sex, class: 'form-control' %>
+        
+        <%= f.label :religion  %>
+        <%= f.password_field :religion, class: 'form-control' %>
+        
+        <%= f.label :education  %>
+        <%= f.password_field :education , class: 'form-control' %>
+        
+        <%= f.label :ocupation   %>
+        <%= f.password_field :ocupation  , class: 'form-control' %>
+        
+        <%= f.label :smoker  %>
+        <%= f.password_field :smoker , class: 'form-control' %>
+        
+        <%= f.label :drinker  %>
+        <%= f.password_field :drinker , class: 'form-control' %>
+        
+        <%= f.label :bio  %>
+        <%= f.password_field :bio , class: 'form-control' %>
+        
+      
+        <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <%= render 'form', user: @user %>
+        <%= link_to 'Show', @user %> |
+        <%= link_to 'Back', users_path %>
+    <% end %>
+    </div>
+</div>

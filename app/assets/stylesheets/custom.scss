@@ -22,6 +22,7 @@ body {
 }
 
 
+
 section {
   overflow: auto;
 }
@@ -58,7 +59,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: white;
+  color: black;
 }
 
 p {
@@ -122,4 +123,8 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+
+div {
+  color: black;
 }

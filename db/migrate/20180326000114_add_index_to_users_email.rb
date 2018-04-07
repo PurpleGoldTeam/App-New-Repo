@@ -1,6 +1,6 @@
 class AddIndexToUsersEmail < ActiveRecord::Migration[5.1]
-  def change
-    add_index :users, :email
+  # def change
+  #   add_index :users, :email
 =begin 
     , :bio ,:race,
       :sex,
@@ -17,5 +17,5 @@ class AddIndexToUsersEmail < ActiveRecord::Migration[5.1]
       :state,
       :zip, unique: true
 =end
-  end
+  # end
 end

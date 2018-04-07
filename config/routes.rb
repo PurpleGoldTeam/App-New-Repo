@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post '/signup',  to: 'users#create'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
-  #post '/users',   to: 'users#create' #already below
+  # post '/users',   to: 'users#create' #already below
   delete '/logout',  to: 'sessions#destroy'
  
   resources :users
@@ -24,11 +24,12 @@ Rails.application.routes.draw do
   post '/users',   to: 'users#create'
   #SSO routes
   get 'auth/:provider/callback' => 'sessions#sso_create'
-  #post '/logout' => 'sessions#destroy' #already above
+  post '/logout' => 'sessions#destroy' #already above
   get 'auth/failure' => 'sessions#failure'
   get 'auth/twitter', :as => 'login2'
 
-
+  put '/edit_profile' => 'users#edit_profile'
+  put '/edit' => 'users#edit'
   
   
  
