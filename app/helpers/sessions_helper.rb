@@ -16,6 +16,7 @@ module SessionsHelper
   # Logs out the current user.
   def log_out
     session.delete(:user_id)
+    flash[:notice] = 'Logged out successfully'
     @current_user = nil
   end
 

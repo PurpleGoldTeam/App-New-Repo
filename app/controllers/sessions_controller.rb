@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
         Ssouser.create_with_omniauth(auth)
         session[:user_id] = user.id
         redirect_to root_path
+
     end
   
   def create
@@ -28,6 +29,7 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     redirect_to root_url
+    flash[:notice] = 'Logged out successfully'
   end
 end
 #end #?
