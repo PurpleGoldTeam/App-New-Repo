@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
  
   resources :users
+  resources :ssousers
 
   post '/users',   to: 'users#create'
   #SSO routes
