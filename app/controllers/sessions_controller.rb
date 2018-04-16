@@ -8,6 +8,15 @@ class SessionsController < ApplicationController
         auth=request.env["omniauth.auth"]
         user=Ssouser.where(:provider => auth["provider"], :uid => auth["uid"]).first ||
         Ssouser.create_with_omniauth(auth)
+#=begin
+        if(user.profile_id == nil)
+          p = Profile.create!
+          user.profile_id = p.id
+          #p.owner = user.id
+          user.save!
+          #p.save!
+        end
+#=end
         session[:user_id] = user.id
         redirect_to root_path
 
@@ -22,6 +31,13 @@ class SessionsController < ApplicationController
     else
       flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
+    end
+    if(user.profile_id == nil)
+          p = Profile.create!
+          user.profile_id = p.id
+          #p.owner = user.id
+          user.save!
+          #p.save!
     end
   end
 
