@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407210440) do
+ActiveRecord::Schema.define(version: 20180417011428) do
 
   create_table "profiles", force: :cascade do |t|
     t.string "name"
@@ -38,30 +38,19 @@ ActiveRecord::Schema.define(version: 20180407210440) do
     t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "profile_id"
+    t.index ["profile_id"], name: "index_ssousers_on_profile_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "bio"
-    t.string "race"
-    t.string "sex"
-    t.string "religion"
-    t.string "education"
-    t.string "ocupation"
-    t.string "income"
-    t.string "smoker"
-    t.string "height"
-    t.string "weight"
-    t.string "age"
-    t.string "address"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.integer "profile_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["profile_id"], name: "index_users_on_profile_id"
   end
 
 end
