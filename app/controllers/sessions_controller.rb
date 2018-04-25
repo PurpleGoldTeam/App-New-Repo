@@ -1,16 +1,17 @@
 class SessionsController < ApplicationController
+  skip_before_action :set_current_user
   def new
   end
-
-      #user shouldn't have to be logged in before logging in
-    skip_before_action :set_current_user
-    def sso_create
-        auth=request.env["omniauth.auth"]
-        user=Ssouser.where(:provider => auth["provider"], :uid => auth["uid"]).first ||
-        Ssouser.create_with_omniauth(auth)
-        session[:user_id] = user.id
-        redirect_to root_path
-    end
+  
+  #user shouldn't have to be logged in before logging in
+  
+  def sso_create
+    auth=request.env["omniauth.auth"]
+    user=Ssouser.where(:provider => auth["provider"], :uid => auth["uid"]).first ||
+    Ssouser.create_with_omniauth(auth)
+    session[:user_id] = user.id
+    redirect_to root_path
+  end
   
   def create
     user = User.find_by(email: params[:session][:email].downcase)
@@ -26,7 +27,7 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
   end
 end

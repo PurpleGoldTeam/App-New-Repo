@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 #used for sso_user
   before_action :set_current_user
-
+  
+ 
   
   #book uses just 'protected', hopefully line below is fine
   protect_from_forgery with: :exception
@@ -17,4 +18,16 @@ class ApplicationController < ActionController::Base
   def welcome
     render html: "Welcome"
   end
+  
+  private
+
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end  
+
+ 
 end

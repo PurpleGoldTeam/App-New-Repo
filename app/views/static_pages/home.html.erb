@@ -7,7 +7,7 @@
   <a href="#">BLND8</a>App.
   </h2>
   <% if @current_user %>
-  User logged in:
+ 
   <%= @current_user.name %>
   <%= link_to "Log Out", '/logout', :method => :post, class: "btn btn-lg btn-primary" %>
   <% else %>
