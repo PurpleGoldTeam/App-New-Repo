@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
+  skip_before_action :set_current_user
   def new
   end
+
 
       #user shouldn't have to be logged in before logging in
     skip_before_action :set_current_user
@@ -21,6 +23,7 @@ class SessionsController < ApplicationController
         redirect_to root_path
 
     end
+
   
   def create
     user = User.find_by(email: params[:session][:email].downcase)
@@ -43,7 +46,7 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
     flash[:notice] = 'Logged out successfully'
   end
