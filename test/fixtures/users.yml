@@ -4,3 +4,14 @@ ruffine:
   name: Ruffine Detoh
   email: delem@example.com
   password_digest: <%= User.digest('password') %>
+  
+leandra:
+  name: Leandra Hukporti
+  email: lea@example.com
+  password_digest: <%= User.digest('password') %>
+  
+  
+miles:
+  name: Miles Hukporti
+  email: pit1@example.com
+  password_digest: <%= User.digest('password') %>
