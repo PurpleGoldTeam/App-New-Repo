@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417011428) do
+ActiveRecord::Schema.define(version: 20180428021237) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer "owner_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180417011428) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.integer "profile_id"
+    t.string "reset_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["profile_id"], name: "index_users_on_profile_id"
   end
