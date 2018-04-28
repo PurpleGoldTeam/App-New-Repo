@@ -14,6 +14,14 @@ Then /^I should see an error message$/ do
 
 end
 
+Then /^I should see profile$/ do
+  page.should have_content("Profiles")
+end
+
+When /^I press profiles$/ do
+ visit '/profiles'
+end
+
 Given /^the user has an account$/ do
   @user = User.create(:name => 'Example User', :email => "example@example.com",
                               :password => "foobar", :password_confirmation => "foobar" )
@@ -23,6 +31,10 @@ Given /^the user submits valid signup information$/ do
   fill_in "Email",    with: @user.email
   fill_in "Password", with: @user.password
   click_button "Create my account"
+end
+
+And /^I should see profiles$/ do
+  page.should have_content("Profiles")
 end
 
 Then /^he should see his profile page$/ do

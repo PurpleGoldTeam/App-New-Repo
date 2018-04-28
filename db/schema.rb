@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20180417011428) do
 
   create_table "profiles", force: :cascade do |t|
+    t.integer "owner_id"
     t.string "name"
     t.string "email"
     t.string "bio"
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180417011428) do
     t.string "city"
     t.string "state"
     t.string "zip"
+    t.index ["owner_id"], name: "index_profiles_on_owner_id"
   end
 
   create_table "ssousers", force: :cascade do |t|
@@ -45,21 +47,6 @@ ActiveRecord::Schema.define(version: 20180417011428) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "bio"
-    t.string "race"
-    t.string "sex"
-    t.string "religion"
-    t.string "education"
-    t.string "ocupation"
-    t.string "income"
-    t.string "smoker"
-    t.string "height"
-    t.string "weight"
-    t.string "age"
-    t.string "address"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
