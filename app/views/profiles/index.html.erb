@@ -10,18 +10,7 @@
       <th>Bio</th>
       <th>Race</th>
       <th>Sex</th>
-      <th>Religion</th>
-      <th>Education</th>
-      <th>Ocupation</th>
-      <th>Income</th>
-      <th>Smoker</th>
-      <th>Height</th>
-      <th>Weight</th>
-      <th>Age</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
+      
       
       <tbody>
         <% @profiles.each do |profile| %>
@@ -29,6 +18,9 @@
           <td><%= profile.id %></td>
           <td><%= profile.name %></td>
           <td><%= profile.bio %></td>
+          <td><%= profile.sex %></td>
+          <td><%= Profile.show_email?(current_user, profile) %></td>
+          <td><%= button_to 'add like', ('/add_like/current_user=' + current_user.profile_id.to_s + 'other_profile=' + profile.id.to_s), method: :post %></td>
         </tr>
       <% end %>
     </tbody>

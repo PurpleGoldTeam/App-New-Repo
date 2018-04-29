@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
 
       #user shouldn't have to be logged in before logging in
-    skip_before_action :set_current_user
+    #skip_before_action :set_current_user
     def sso_create
         auth=request.env["omniauth.auth"]
         user=Ssouser.where(:provider => auth["provider"], :uid => auth["uid"]).first ||
