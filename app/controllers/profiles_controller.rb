@@ -9,5 +9,6 @@ class ProfilesController < ApplicationController
     
     def add_like
         Profile.add_like(params[:profiles])
+        redirect_to '/profiles'
     end
 end
