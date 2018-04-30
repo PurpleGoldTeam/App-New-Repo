@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417011428) do
+ActiveRecord::Schema.define(version: 20180427190248) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer "owner_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180417011428) do
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.index ["owner_id"], name: "index_profiles_on_owner_id"
+    t.string "mylikes"
   end
 
   create_table "ssousers", force: :cascade do |t|

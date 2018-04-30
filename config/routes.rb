@@ -33,11 +33,10 @@ Rails.application.routes.draw do
   get 'auth/twitter', :as => 'login2'
   
   
-  
-
-
   get '/profiles', to: 'profiles#index'
   get '/profiles/:id', to: 'profiles#show'
+  
+  post '/add_like/:profiles' => 'profiles#add_like'
   
   
  
