@@ -30,18 +30,19 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
     # Log the user in and redirect to the user's show page.
       log_in user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
       flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
     end
-    if(user.profile_id == nil)
-          p = Profile.create!
-          user.profile_id = p.id
-          #p.owner = user.id
-          user.save!
-          #p.save!
-    end
+    # if(user.profile_id == nil)
+    #       p = Profile.create!
+    #       user.profile_id = p.id
+    #       #p.owner = user.id
+    #       user.save!
+    #       #p.save!
+    # end
   end
 
 
@@ -49,6 +50,27 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
     flash[:notice] = 'Logged out successfully'
+  end
+    # Remembers a user in a persistent session.
+  def remember(user)
+    user.remember
+    cookies.permanent.signed[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.remember_token
+  end
+    # Returns the current logged-in user (if any).
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  # Returns true if the user is logged in, false otherwise.
+  def logged_in?
+    !current_user.nil?
+  end
+
+  # Logs out the current user.
+  def log_out
+    session.delete(:user_id)
+    @current_user = nil
   end
 end
 #end #?
