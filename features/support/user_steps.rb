@@ -14,11 +14,11 @@ Then /^I should see an error message$/ do
 
 end
 
-Then /^I should see profile$/ do
+Then /^I should see Profile$/ do
   page.should have_content("Profiles")
 end
 
-When /^I press profiles$/ do
+When /^I press Profiles$/ do
  visit '/profiles'
 end
 
@@ -33,7 +33,7 @@ Given /^the user submits valid signup information$/ do
   click_button "Create my account"
 end
 
-And /^I should see profiles$/ do
+And /^I should see Profiles$/ do
   page.should have_content("Profiles")
 end
 

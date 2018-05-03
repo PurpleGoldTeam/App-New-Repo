@@ -16,7 +16,7 @@
         <% @profiles.each do |profile| %>
         <tr>
           <td><%= profile.id %></td>
-          <td><%= profile.name %></td>
+          <td><%= link_to profile.name, ('/profiles/' + profile.id.to_s) %></td>
           <td><%= profile.bio %></td>
           <td><%= profile.sex %></td>
           <td><%= Profile.show_email?(current_user, profile) %></td>
