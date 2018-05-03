@@ -17,6 +17,15 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+      
+      <%= radio_button_tag :sex, "male" %>
+      <%= label_tag(:sex_male,   "Male") %>
+      <%= radio_button_tag(:sex, "female") %>
+      <%= label_tag(:sex_female, "Female") %>
+      <%= radio_button_tag(:sex, "other") %>
+      <%= label_tag(:sex_female, "Other") %>
+     
+      
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>

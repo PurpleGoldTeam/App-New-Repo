@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     #has_one :profile, as: :profile_info
-
+    enum gender: [:undisclosed, :female, :male, :other]
+ 
     before_save { self.email = email.downcase
     if self.profile_id == nil
         p = Profile.create!
@@ -21,5 +22,6 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
-  
+
+    
 end
