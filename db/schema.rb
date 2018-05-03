@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 20180427190248) do
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "owner_id"
     t.string "name"
     t.string "email"
     t.string "bio"
