@@ -12,12 +12,9 @@
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Edit password", 'edit_user_path' %></li>
+              <!--<li><%#= link_to "Edit password", 'edit_user_path' %></li>-->
               <li><%= link_to "Profile", ('/profiles/' + current_user.profile_id.to_s) %></li>
-        <!--Old go to user
-              <li><%#= link_to "Settings", edit_user_path(current_user) %></li>
-        -->
-              <li class="divider"></li>
+           <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: :delete %>
                 
