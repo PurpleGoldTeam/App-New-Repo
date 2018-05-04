@@ -25,19 +25,31 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+  def index
+    @users = User.where(activated: FILL_IN).paginate(page: params[:page])
+  end
+
+  def show
+    @user = User.find(params[:id])
+    redirect_to root_url and return unless FILL_IN
+  end
 
   # POST /users
   # POST /users.json
   def create
-    #@user = User.new(params[:user]) 
+    # @user = User.new(params[:user]) 
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
         # @user.log_in
         # log_in @user
+        @user.send_activation_email
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
+        UserMailer.account_activation(@user).deliver_now
+        flash[:info] = "Please check your email to activate your account."
+        redirect_to root_url
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
